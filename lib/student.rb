@@ -74,6 +74,8 @@ class Student
       WHERE students.grade = 9
     SQL
 
-    DB[:conn].execute(sql)
+    DB[:conn].execute(sql).collect do |student|
+      self.new_from_db(student)
+    end
   end
 end
