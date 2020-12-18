@@ -122,4 +122,18 @@ class Student
       self.new_from_db(student)
     end
   end
+
+  def self.all_students_in_grade_X(grade)
+    sql = <<-SQL
+      SELECT students.id, students.name, students.grade
+      FROM students
+      WHERE students.grade = ?
+      ORDER BY students.id
+    SQL
+
+    students = DB[:conn].execute(sql, number)
+    students.collect do |student|
+      self.new_from_db(student)
+    end
+  end
 end
