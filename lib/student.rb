@@ -131,7 +131,7 @@ class Student
       ORDER BY students.id
     SQL
 
-    students = DB[:conn].execute(sql, number)
+    students = DB[:conn].execute(sql, grade)
     students.collect do |student|
       self.new_from_db(student)
     end
