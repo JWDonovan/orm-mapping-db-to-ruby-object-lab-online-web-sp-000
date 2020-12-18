@@ -38,7 +38,7 @@ class Student
     student = DB[:conn].execture(sql, name)
     student.collect do |student|
       self.new_from_db(student)
-    end
+    end.first
   end
 
   def save
