@@ -107,4 +107,19 @@ class Student
       self.new_from_db(student)
     end
   end
+
+  def sefl.first_student_in_grade_10
+    sql = <<-SQL
+      SELECT students.id, students.name, students.grade
+      FROM students
+      WHERE students.grade = 10
+      ORDER BY students.id
+      LIMIT 1
+    SQL
+
+    students = DB[:conn].execute(sql, number)
+    students.collect do |student|
+      self.new_from_db(student)
+    end
+  end
 end
