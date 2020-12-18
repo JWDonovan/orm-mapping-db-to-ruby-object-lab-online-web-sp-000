@@ -71,7 +71,6 @@ class Student
     sql = <<-SQL
       SELECT students.id, students.name, students.grade
       WHERE students.grade = 9
-      VALUES (?, ?)
     SQL
   end
 end
