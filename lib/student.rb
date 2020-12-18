@@ -29,7 +29,7 @@ class Student
     # return a new instance of the Student class
     sql = <<-SQL
       SELECT students.id, students.name, students.grade FROM students
-      WHERE students.name = name
+      WHERE students.name = ?
     SQL
   end
 
