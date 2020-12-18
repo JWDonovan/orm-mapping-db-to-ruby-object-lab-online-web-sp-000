@@ -35,7 +35,7 @@ class Student
       LIMIT 1
     SQL
 
-    DB[:conn].execture(sql, name)
+    student = DB[:conn].execture(sql, name)
   end
 
   def save
