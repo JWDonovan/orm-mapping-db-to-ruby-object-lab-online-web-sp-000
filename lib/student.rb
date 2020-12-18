@@ -20,7 +20,7 @@ class Student
 
     students = DB[:conn].execute(sql)
 
-    students.each do |student|
+    students.collect do |student|
       self.new_from_db(student)
     end
   end
@@ -36,6 +36,7 @@ class Student
     SQL
 
     student = DB[:conn].execture(sql, name)
+
   end
 
   def save
