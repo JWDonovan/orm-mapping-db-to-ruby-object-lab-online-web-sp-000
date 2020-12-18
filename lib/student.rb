@@ -92,4 +92,19 @@ class Student
       self.new_from_db(student)
     end
   end
+
+  def self.first_X_students_in_grade_10(number)
+    sql = <<-SQL
+      SELECT students.id, students.name, students.grade
+      FROM students
+      WHERE students.grade = 10
+      ORDER BY students.id
+      LIMIT ?
+    SQL
+
+    students = DB[:conn].execute(sql)
+    students.collect do |student|
+      self.new_from_db(student)
+    end
+  end
 end
