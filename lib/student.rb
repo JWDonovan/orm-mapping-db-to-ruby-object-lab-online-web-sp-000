@@ -70,6 +70,7 @@ class Student
   def self.all_students_in_grade_9
     sql = <<-SQL
       SELECT students.id, students.name, students.grade
+      FROM students
       WHERE students.grade = 9
     SQL
   end
