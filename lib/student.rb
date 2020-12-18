@@ -30,6 +30,7 @@ class Student
     sql = <<-SQL
       SELECT students.id, students.name, students.grade FROM students
       WHERE students.name = ?
+      LIMIT 1
     SQL
 
     DB[:conn].execture(sql, name)
