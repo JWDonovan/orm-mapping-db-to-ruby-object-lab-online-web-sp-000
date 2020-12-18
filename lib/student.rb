@@ -31,6 +31,8 @@ class Student
       SELECT students.id, students.name, students.grade FROM students
       WHERE students.name = ?
     SQL
+
+    DB[:conn].execture(sql, name)
   end
 
   def save
